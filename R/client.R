@@ -9,9 +9,10 @@ ElasticsearchClient <- function(host = "http://localhost:9200") {
   httr::stop_for_status(res)
 
   res = formatESResult(res, FALSE)
-  if (res$status != 200) {
-    stop()
-  }
+  ## En la versión 2 de bibliolabs.cc no aparece una variable status
+  ## if (res$status != 200) {
+  ##   stop()
+  ## }
 
   structure(list("url" = url), class = "elasticsearch")
 }
